@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: header">
+</head>
+<body>
+<div th:replace="fragments :: nav"></div>
+<div>
+    <h2>Login</h2>
+</div>
+<form method="post">
+    <div>
+        <label>  <text>Username</text>
+            <input th:field="${loginFormDTO.username}">
+        </label>
+        <p class="error" th:errors="${loginFormDTO.username}"></p>
+    </div>
+        <div>
+            <label><text>Password</text>
+            <input th:field="${loginFormDTO.password}" type="password">
+        </label>
+        <p class="error" th:errors="${loginFormDTO.password}"></p>
+    </div>
+
+    <input type="submit" value="Log In" />
+</form>
+<p>Don't have an account? <a href="/register">Register for one.</a></p>
+</body>
+</html>

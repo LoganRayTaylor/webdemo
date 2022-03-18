@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: header">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link th:href="@{/css/edit_table.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/javascript/edit_table.js}"></script>
+</head>
+<body>
+
+<div th:replace="fragments :: nav"></div>
+
+<h2>Public Posts</h2>
+<div class="table">
+    <p th:unless="${posts} and ${posts.size()}">No Posts!</p>
+    <div class="thead">
+        <div class="tr">
+            <div class="td">Username</div>
+            <div class="td">Title</div>
+            <div class="td">Text</div>
+            <div class="td2">Date posted</div>
+            <div class="td">Public?</div>
+            <div class="td">Edit?</div>
+        </div>
+    </div>
+    <div class="tbody">
+        <form class="tr" th:each="post : ${posts}">
+            <p th:text="${post.id}" hidden></p>
+            <div class="tdpermanent" th:text="${post.user.username}" ></div>
+            <div class="td" th:class="${post.user == user} ? 'td' : 'tdpermanent'" th:id="${post.id}"><a th:href="@{'/post/view/' + ${post.id}}" th:text="${post.title}"></a></div>
+            <div class="td" th:class="${post.user == user} ? 'td' : 'tdpermanent'" th:text="${post.text}"></div>
+            <div class="td2" th:text="${post.startdate}"></div>
+            <div class="td"  th:class="${post.user == user} ? 'td' : 'tdpermanent'" th:text="${post.isPublic}"></div>
+            <div class="td action" th:if="${post.user == user}"><button type="button" onclick="edit(this);">edit</button></div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

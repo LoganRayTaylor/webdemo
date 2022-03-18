@@ -1,0 +1,139 @@
+body {
+    font-size: 14px;
+}
+.error {
+    color: red;
+}
+
+table{
+    width: 50%;
+}
+
+label {
+    border: 0px;
+}
+
+input {
+    padding: 10px;
+    /*margin: auto;*/
+/*padding-right: 1860px;*/
+    font-size: large;
+}
+
+body {
+    margin: 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+
+    color: white;
+    background-color: aliceblue;
+    background-image: url("Logan-BG-draft-01.png");
+    background-repeat: no-repeat;
+    background-size: 1920px 1080px;
+}
+
+div {
+
+
+    /*width: 50%;*/
+    color: white;
+    fill: #111145;
+    background-color: #111145;
+    /*fill: darkslateblue;*/
+    /*background-color: darkslateblue;*/
+    /*fill: slateblue;*/
+    /*background-color: slateblue;*/
+}
+
+h2 {
+    margin: auto;
+    color: white;
+    fill: #111145;
+    background-color: #111145;
+    /*fill: darkslateblue;*/
+    /*background-color: darkslateblue;*/
+    /*fill: slateblue;*/
+    /*background-color: slateblue;*/
+}
+
+h1 {
+    size: 10px;
+    margin-top: -0px;
+    color: white;
+    fill: #111145;
+    background-color: #111145;
+    /*fill: darkslateblue;*/
+    /*background-color: darkslateblue;*/
+    /*fill: slateblue;*/
+    /*background-color: slateblue;*/
+}
+
+a {
+    color: white;
+    fill: #111145;
+    background-color: #111145;
+    /*fill: darkslateblue;*/
+    /*background-color: darkslateblue;*/
+    /*fill: slateblue;*/
+    /*background-color: slateblue;*/
+}
+
+.td2
+{
+    display:table-cell;
+    border:2px solid black;
+    padding:3px;
+}
+
+p {
+    margin: auto;
+    color: white;
+    fill: #111145;
+    background-color: #111145;
+    /*fill: darkslateblue;*/
+    /*background-color: darkslateblue;*/
+    /*fill: slateblue;*/
+    /*background-color: slateblue;*/
+    padding: 10px;
+}
+
+span {
+    color: white;
+
+    fill: #111145;
+    background-color: #111145;
+    /*fill: darkslateblue;*/
+    /*background-color: darkslateblue;*/
+    /*fill: slateblue;*/
+    /*background-color: slateblue;*/
+
+}
+
+ul {
+    color: white;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #115;
+    /*background-color: #111144;*/
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}

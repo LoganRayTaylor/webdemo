@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/webdemo/src/main/resources/templates/fragments.html" value="file://$PROJECT_DIR$/webdemo/src/main/resources/templates" />
+        <entry key="file://$PROJECT_DIR$/webdemo/src/main/resources/templates/posts/displaypost.html" value="file://$PROJECT_DIR$/webdemo/src/main/resources/templates/posts" />
+        <entry key="file://$PROJECT_DIR$/webdemo/src/main/resources/templates/posts/view.html" value="file://$PROJECT_DIR$/webdemo/src/main/resources/templates/posts" />
+      </map>
+    </option>
+  </component>
+</project>

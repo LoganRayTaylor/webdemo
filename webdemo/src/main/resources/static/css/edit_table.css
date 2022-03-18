@@ -1,0 +1,44 @@
+.table
+{
+    width: 50%;
+    /*display: table-column;*/
+    display:table;
+    /*border-collapse:separate;*/
+    border-collapse: collapse;
+    border-spacing:2px;
+}
+.thead
+{
+    /*display: table-column;*/
+    display:table-header-group;
+    color:white;
+    font-weight:bold;
+    background-color:grey;
+}
+.tbody
+{
+    /*display: table-column;*/
+    /*display:table-row-group;*/
+    display: table-row-group;
+}
+.tr
+{
+    display:table-row;
+    /*display: table-column;*/
+}
+.td
+{
+    display:table-cell;
+    border:2px solid black;
+    padding:3px;
+}
+.tdpermanent
+{
+    display:table-cell;
+    border:2px solid black;
+    padding:3px;
+}
+.tr.editing .td INPUT
+{
+    width:100px;
+}

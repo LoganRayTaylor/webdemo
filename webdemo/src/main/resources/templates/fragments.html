@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="header">
+    <meta charset="UTF-8"/>
+    <title>Home Page</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link th:href="@{/css/edit_table.css}" rel="stylesheet" />
+        <link th:href="@{/styles.css}" rel="stylesheet" type="text/css" media="all" />
+        <script type="text/javascript" th:src="@{/javascript/edit_table.js}"></script>
+</head>
+<body>
+<div>
+    <h1>Hello, <span th:if="${session.containsKey('user')}"></span> <span th:unless="${session.isEmpty()} ? 'No' : 'Yes'">Anonymous User</span> <span th:text="${session.user2}"></span> - Id <span th:text="${session.user}"></span>
+    </h1>
+    <span>Welcome to <span th:text="${appName}"></span></span>
+    </div>
+
+<div th:fragment="nav">
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/post}">My Posts</a></li>
+                <li><a th:href="@{/post/public}">Public Posts</a></li>
+                <li><a th:href="@{/post/create}">Add Posts</a></li>
+                <li th:if="${session.isEmpty()} ? 'Yes' : 'No'"><a th:href="@{/logout}">Login</a></li>
+                <li th:if="${session.isEmpty()} ? 'No' : 'Yes'"><a th:href="@{/logout}">Logout</a></li>
+
+                <li>
+                    Session empty?
+                    <th:block th:text="${session.isEmpty()} ? 'Yes' : 'No'">Yes</th:block>
+                <li/>
+            </ul>
+</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2ts-mSQeAo4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</body>
+</html>
