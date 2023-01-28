@@ -46,7 +46,7 @@ public class PostController {
     }
 
     @GetMapping("create")
-    public String displayCreatePostsForm(Model model){
+    public String displayCreatePostsForm(Model model) {
 
         model.addAttribute("title", "Create Posts");
         model.addAttribute(new PostFormDTO());
@@ -55,7 +55,7 @@ public class PostController {
     }
 
     @PostMapping("create")
-    public String processCreatePostsForm(@ModelAttribute @Valid PostFormDTO newPostFormDTO, HttpServletRequest request, Errors errors){
+    public String processCreatePostsForm(@ModelAttribute @Valid PostFormDTO newPostFormDTO, HttpServletRequest request, Errors errors) {
         if (errors.hasErrors()) return "posts/create";
 
         HttpSession session = request.getSession();
@@ -63,25 +63,53 @@ public class PostController {
 
         Post newPost = new Post(newPostFormDTO.getTitle(), newPostFormDTO.getText(), newPostFormDTO.getIsPublic(), user, newPostFormDTO.getPostDate());
         postRepository.save(newPost);
-        return  "/posts/public";
+        return "/posts/public";
 //        return "redirect:";
     }
 
-    @GetMapping("view/{postId}")
-    public String viewPosts(Model model, @PathVariable int postId) {
 
-        Optional optPost =postRepository.findById(postId);
-        if( optPost.isPresent()) {
-            Post post = (Post)optPost.get();
-            model.addAttribute("post", post);
-            model.addAttribute("title", "View Post");
-            model.addAttribute(new PostFormDTO());
-            return "posts/view";
-        } else {
-            return "redirect:/";
+
+//        Edit1
+//        @GetMapping("view/{postId}")
+//        public String viewPosts(Model model, @PathVariable int postId) {
+//
+//            Optional optPost = postRepository.findById(postId);
+//            if (optPost.isPresent()) {
+//                Post post = (Post) optPost.get();
+//                model.addAttribute("post", post);
+//                model.addAttribute("title", "View Post");
+//                model.addAttribute(new PostFormDTO());
+//                return "posts/view";
+//            } else {
+//                return "redirect:/";
+//            }
+//
+//        }
+//
+//        }
+
+
+
+//    Edit2
+        @GetMapping("view/{postId}")
+        public String viewPosts(HttpServletRequest request, Model model, @PathVariable int postId) {
+            HttpSession session = request.getSession();
+        User user = authenticationController.getUserFromSession(session);
+            Optional optPost = postRepository.findById(postId);
+            if (optPost.isPresent()) {
+                Post post = (Post) optPost.get();
+                model.addAttribute("user", user);
+                model.addAttribute("post", post);
+                model.addAttribute("title", "View Post");
+                model.addAttribute(new PostFormDTO());
+                return "posts/view";
+            } else {
+                return "redirect:/";
+            }
+
         }
 
-    }
+
 
 
     @RequestMapping(value="/savePost.html",method=RequestMethod.POST)

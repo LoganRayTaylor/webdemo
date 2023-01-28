@@ -8,12 +8,12 @@ import java.time.LocalDate;
 public class PostFormDTO {
 
     @NotNull
-    @NotBlank(message="Must not be blank")
-    @Size(min=3, max=50, message="Username must be between 3 and 50 characters")
+    @NotBlank
+    @Size(min=3, max=50, message="Title must be between 3 and 50 characters")
     private String title;
 
     @NotNull
-    @NotBlank(message="Must not be blank")
+    @NotBlank
     @Size(min=3, max=250, message="Post must be between 3 and 250 characters")
     private String text;
 

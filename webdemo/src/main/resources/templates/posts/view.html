@@ -1,6 +1,13 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: header">
+</head>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: header">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link th:href="@{/css/edit_table.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/javascript/edit_table.js}"></script>
 </head>
 <body>
 
@@ -12,22 +19,37 @@
 
 <div>
 
-    <h2 th:text="${post.title}">Post</h2>
+<!--    <h2 th:text="${post.title}">Post</h2>-->
     <div class="table">
         <div class="thead">
             <div class="tr">
                 <div class="td">Title</div>
                 <div class="td">Text</div>
                 <div class="td">Public?</div>
+                <div class="td">Post Username</div>
+                <div class="td">Post Username ID</div>
+                <div class="td">Post ID</div>
+                <div class="td">Edit?</div>
             </div>
         </div>
         <div class="tbody">
-            <form class="tr">
-                <p th:text="${post.id}" hidden></p>
-                <div class="td" th:id="${post.id}" th:text="${post.title}"></div>
-                <div class="td" th:text="${post.text}"></div>
-                <div class="td" id="isPublic" th:id="${post.id} + ' isPublic'" th:text="${post.isPublic}"></div>
+<!--            <form class="tr">-->
+            <form class="tr" th:each="post : ${post}">
+<!--                <p th:text="${post.id}" hidden></p>-->
+<!--                <div class="td" th:id="${post.id}" th:text="${post.title}"></div>-->
+<!--                <div class="td" th:text="${post.title}"></div>-->
+                <div class="td" th:class="${post.user == user} ? 'td' : 'tdpermanent'" th:id="${post.id}"><a th:href="@{'/post/view/' + ${post.id}}" th:text="${post.title}"></a></div>
+                <div class="td" th:class="${post.user == user} ? 'td' : 'tdpermanent'" th:text="${post.text}"></div>
+<!--                <div class="td" th:text="${post.text}"></div>-->
+                <div class="td"  th:class="${post.user == user} ? 'td' : 'tdpermanent'" th:text="${post.isPublic}"></div>
+<!--                <div class="td" id="isPublic" th:id="${post.id} + ' isPublic'" th:text="${post.isPublic}"></div>-->
+<!--                <div class="td action" th:if="${post.user == user}"><button type="button" onclick="edit(this);">edit</button></div>-->
+<!--                <div class="td action" th:if="${post.user == user}"><button type="button" onclick="edit(this);">edit</button></div>-->
+                <div class="td" th:text="${post.user.username}"></div>
+                <div class="td" th:text="${post.user.id}"></div>
+                <div class="td" th:text="${post.id}"></div>
                 <div class="td action" th:if="${post.user == user}"><button type="button" onclick="edit(this);">edit</button></div>
+<!--                <div class="td action"><button type="button" onclick="edit(this);">edit</button></div>-->
             </form>
         </div>
     </div>

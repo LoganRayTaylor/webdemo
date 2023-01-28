@@ -22,7 +22,10 @@ public class AuthenticationFilter implements HandlerInterceptor {
     @Autowired
     AuthenticationController authenticationController;
 
+//    private static final List<String> whitelist = Arrays.asList("/login", "/", "/register", "/logout", "/post/create", "/create", "/static/Logan-BG-draft-01.png", "/styles.css", "/css/edit_table.css", "/javascript/edit_table.js");
+
     private static final List<String> whitelist = Arrays.asList("/login", "/", "/register", "/logout", "/post/create","/post", "/create", "/static/Logan-BG-draft-01.png", "/styles.css", "/css/edit_table.css", "/javascript/edit_table.js");
+
 
 //    private static final List<String> whitelist = Arrays.asList("/login",  "/static/Logan-BG-draft-01.png", "/styles.css", "/css/edit_table.css", "/javascript/edit_table.js");
 
@@ -35,6 +38,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
         }
         return false;
     }
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
@@ -53,5 +57,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
         return false;
 
     }
+
+
 
 }

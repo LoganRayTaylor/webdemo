@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="webdemo.webdemo.main~1" target="17" />
-      <module name="webdemo.webdemo.test~1" target="17" />
+      <module name="webdemo.webdemo.main" target="17" />
+      <module name="webdemo.webdemo.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
